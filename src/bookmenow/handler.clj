@@ -5,7 +5,7 @@
             [hiccup.middleware :refer [wrap-base-url]]
             [compojure.handler :as handler]
             [compojure.route :as route]
-            [bookmenow.routes.home :refer [home-routes]]))
+            [bookmenow.routes.auth :refer [auth-routes]]))
 
 (defn init []
   (println "bookmenow is starting"))
@@ -18,6 +18,6 @@
   (route/not-found "Not Found"))
 
 (def app
-  (-> (routes home-routes app-routes)
+  (-> (routes auth-routes app-routes)
       (handler/site)
       (wrap-base-url)))

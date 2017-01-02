@@ -1,10 +1,14 @@
 (defproject bookmenow "0.1.0-SNAPSHOT"
   :description "FIXME: write description"
   :url "http://example.com/FIXME"
-  :dependencies [[org.clojure/clojure "1.6.0"]
-                 [compojure "1.1.6"]
+  :min-lein-version "2.0.0"
+  :dependencies [[org.clojure/clojure "1.9.0-alpha14"]
+                 [compojure "1.5.1"]
+                 [ring-server "0.4.0"]
+                 [ring/ring-json "0.4.0"]
+                 [environ "1.1.0"]
                  [hiccup "1.0.5"]
-                 [ring-server "0.3.1"]]
+                 [clj-http "2.3.0"]]
   :plugins [[lein-ring "0.8.12"]]
   :ring {:handler bookmenow.handler/app
          :init bookmenow.handler/init
