@@ -5,7 +5,9 @@
             [hiccup.middleware :refer [wrap-base-url]]
             [compojure.handler :as handler]
             [compojure.route :as route]
-            [bookmenow.routes.auth :refer [auth-routes]]))
+            [bookmenow.routes.auth :refer [auth-routes]]
+            [bookmenow.routes.events :refer [event-routes]]
+            [ring.middleware.json :refer [wrap-json-body wrap-json-response]]))
 
 (defn init []
   (println "bookmenow is starting"))
@@ -18,6 +20,7 @@
   (route/not-found "Not Found"))
 
 (def app
-  (-> (routes auth-routes app-routes)
+  (-> (routes auth-routes event-routes app-routes)
       (handler/site)
-      (wrap-base-url)))
+      (wrap-json-body {:keywords? true :bigdecimals? true})
+      (wrap-json-response)))

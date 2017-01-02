@@ -8,7 +8,8 @@
                  [ring/ring-json "0.4.0"]
                  [environ "1.1.0"]
                  [hiccup "1.0.5"]
-                 [clj-http "2.3.0"]]
+                 [clj-http "2.3.0"]
+                 [org.ocpsoft.prettytime/prettytime-nlp "4.0.0.Final"]]
   :plugins [[lein-ring "0.8.12"]]
   :ring {:handler bookmenow.handler/app
          :init bookmenow.handler/init
