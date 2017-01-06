@@ -38,3 +38,7 @@
         {}) real-name)
     (add-some-details real-name text)))
 
+
+(def complete? (s/keys :req [::from ::to ::organiser] :opt [::meeting-name]))
+(clojure.pprint/pprint (s/explain-data complete? {}))
+(clojure.pprint/pprint (s/explain-data complete? {::from "wat"}))
